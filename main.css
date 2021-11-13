@@ -1,0 +1,72 @@
+body {
+  font-size: 16px;
+  /* background: black; */
+  /* color: white; */
+  font-family: monospace;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  justify-content: center;
+}
+
+.takkar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.takkar h1 {
+  text-align: center;
+  margin: .125em 0;
+}
+
+#inputLitur {
+  width: auto;
+}
+
+#holder {
+  margin: 0 auto;
+}
+
+.card {
+  /* display: flex;
+  flex-direction: column; */
+  width: 400px;
+  border: 5px solid white;
+  margin: 1em;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.titill,
+.tag,
+.flokkur {
+  font-weight: bold;
+}
+
+.titill {
+  margin-top: 0;
+  font-size: 1.25em;
+}
+
+.tag {
+  background: lightgray;
+  padding: 0.25em;
+  border: 2px solid black;
+  border-radius: 7px;
+  font-size: 0.75rem;
+}
+
+.nedst {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fogd {
+  display: flex;
+  justify-content: space-between;
+}
