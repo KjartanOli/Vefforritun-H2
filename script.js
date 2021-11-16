@@ -10,6 +10,9 @@ let iTag3 = document.querySelector("#inputTag3");
 let iFlokkur = document.querySelector("#inputFlokkur");
 let iLitur = document.querySelector("#inputLitur");
 
+let tagUpperLimit = 5;
+let sizeMagicNum = 0; //fjöldi stafa sem þarf að taka aftan af input til þess að textinn lýti út fyrir að vera í miðjunni
+
 let listi = [];
 let id = 0;
 
@@ -34,13 +37,17 @@ function builder(id,tit,lys,dag,flo,tags,lit) {
   let category = clone.querySelector(".flokkur")
   
   title.value = tit;
+  resizeTitle(title)
   title.addEventListener("change",(e) => {
     console.log(title.value)
+    resizeTitle(title)
   });
 
   description.value = lys;
+  resizeDescription(description)
   description.addEventListener("change",(e) => {
     console.log(description.value)
+    resizeDescription(description)
   });
 
 
@@ -51,13 +58,26 @@ function builder(id,tit,lys,dag,flo,tags,lit) {
   let idToDel = id;
 
   for (const tag of tags) {
-		tagContainer.appendChild(el("li", tag));
+    let t = el("input")
+    t.value = tag;
+    t.addEventListener("change",(e) => {
+      console.log(t.value);
+      resizeTag(t)
+    })
+    resizeTag(t)
+    tagContainer.appendChild(el("li", t));
 	}
 
   addTag.addEventListener("click",(e) => {
-    let t = el("input")
-    t.setAttribute("placeholder","tag")
-    tagContainer.appendChild(el("li",t));
+    if (tagContainer.childElementCount < tagUpperLimit) {
+      let t = el("input")
+      t.setAttribute("placeholder","tag")
+      t.addEventListener("change",(e) => {
+        console.log(t.value);
+        resizeTag(t)
+      })
+      tagContainer.appendChild(el("li",t));
+    }
   })
 
   clone.querySelector("#delete").addEventListener("click",(e) => {
@@ -148,6 +168,35 @@ function dateFormat(d) {
   out = out + d.substring(5,7) + "-";
   out = out + d.substring(0,4);
   return out;
+}
+
+function resizeTitle(t) {
+  if (t.value.length > 32) {
+    t.setAttribute("rows",2)
+    t.style.height = "2.4em"
+  }
+  else {
+    t.setAttribute("rows",1);
+    t.style.height = "1.2em"
+  }
+}
+
+function resizeDescription(d) {
+  if (d.value == "") {
+    d.style.height = "2em"
+  }
+  else {
+    d.style.height = Math.floor(d.value.length / 40) + 2 +"em"
+  }
+}
+
+function resizeTag(t) {
+  if (t.value.length > sizeMagicNum) {
+    t.setAttribute("size",t.value.length-sizeMagicNum)
+  }
+  else {
+    t.setAttribute("size",1)
+  }
 }
 
 if (localStorage.getItem("listi") !== null) onStart();

@@ -34,6 +34,10 @@ input, input:focus {
   width: 100%;
   border: none;
   outline: none !important;
+  min-width: 0;
+  font-family: monospace;
+  font-weight: bold;
+  /* word-wrap: break-word; */
 }
 
 .card {
@@ -57,20 +61,30 @@ input, input:focus {
   font-size: 1.25em;
 }
 
-.lysing ,.lysing:hover {
+.lysing ,.lysing:focus, .titill, .titill:focus {
+  /* font-size: 0.75em; */
   width: 100%;
   border: none;
   resize: none;
   outline: none;
 }
 
+.titill {
+  height: 2.3em;
+}
+
+.lysing {
+  height: 6em;
+}
+
 .tags {
 	list-style: none;
 	/* order: 3; */
-	padding: 0;
 	display: flex;
-	justify-content: space-around;
+	/* justify-content: space-around; */
+  padding-inline-start: 0;
   flex-wrap: wrap;
+  margin: 0;
 	/* width: 30%; */
 }
 
@@ -81,9 +95,13 @@ input, input:focus {
   border-radius: 7px;
   font-size: 0.75rem;
 	display: inline-block;
+  margin-right: .25em;
+  margin-bottom: .25em;
+  width: fit-content;
 }
 
 .tags input {
+  width: 95%;
   background: lightgray;
 }
 
@@ -91,7 +109,8 @@ input, input:focus {
   margin-bottom: 1em;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 1em;
+  justify-content: flex-start;
 }
 
 .fogd {
