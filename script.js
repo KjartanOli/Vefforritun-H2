@@ -22,7 +22,6 @@ function nyttShit() {
   builder(uppl.ID,uppl.Titill,uppl.Lysing,uppl.Dags,uppl.Flokkur,uppl.Tags,uppl.Litur);
 }
 
-function builder(id,tit,lys,dag,flo,tag,lit) {
 function builder(id,tit,lys,dag,flo,tags,lit) {
   let clone = template.content.cloneNode(true);
   let tagContainer = clone.querySelector(".tags");
