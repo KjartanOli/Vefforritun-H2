@@ -148,7 +148,9 @@ async function onStart() {
   for (const item of parsedListi.items) {
     // listi.push(key);
     // builder(key.ID,key.Titill,key.Lysing,key.Dags,key.Flokkur,key.Tags,key.Litur)
-		builder(item.id, item.title, item.description, item.date, item.category, item.tags, "#000000")
+    if (!item.deleted) {
+      builder(item.id, item.title, item.description, item.date, item.category, item.tags, "#000000")
+    }
   }
 }
 
