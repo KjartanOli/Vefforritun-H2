@@ -60,11 +60,11 @@ function takeAndEscape(e) {
 }
 
 function writeJson() {
-  if (listi.length <= 0) { 
-    id = 0; 
+  if (listi.length <= 0) {
+    id = 0;
     console.log(listi.length)
   }
-  else{ 
+  else{
     id = listi[listi.length-1].ID+1;
     console.log(id)
   }
@@ -85,17 +85,27 @@ function writeJson() {
   localStorage.removeItem("listi")
   listi.push(obj)
   localStorage.setItem("listi",JSON.stringify(listi))
-  
+
   return obj;
 }
 
-function onStart() {
-  let geymdurListi = localStorage.getItem("listi");
-  let parsedListi = JSON.parse(geymdurListi);
-  
-  for (const key of parsedListi) {
-    listi.push(key);
-    builder(key.ID,key.Titill,key.Lysing,key.Dags,key.Flokkur,key.Tags,key.Litur)
+async function onStart() {
+  // let geymdurListi = localStorage.getItem("listi");
+  // let parsedListi = JSON.parse(geymdurListi);
+
+	let parsedListi;
+	try {
+		const data = await fetch(new URL("data.json", window.location.href));
+		parsedListi = await data.json();
+	}
+	catch (e) {
+		console.log(e);
+	}
+	console.log(parsedListi)
+  for (const item of parsedListi.items) {
+    // listi.push(key);
+    // builder(key.ID,key.Titill,key.Lysing,key.Dags,key.Flokkur,key.Tags,key.Litur)
+		builder(item.id, item.title, item.description, item.date, item.category, item.tags, "#000000")
   }
 }
 

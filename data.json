@@ -1,0 +1,126 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "title": "Útfæra prótótýpu viðmót fyrir v1 af vefforriti",
+      "description": "",
+      "category": "vefforrit",
+      "tags": ["framendi", "html"],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": 1638648500000,
+      "deleted": false,
+      "completed": false
+    },
+    {
+      "id": "2",
+      "title": "Bóka planning fyrir sprett #4",
+      "description": "Eftir retro fyrir sprett #3",
+      "category": "skipulag",
+      "tags": ["fundir"],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": 1636648500000,
+      "deleted": false,
+      "completed": false
+    },
+    {
+      "id": "3",
+      "title": "Test task fyrir deleted",
+      "description": "vefþjónustur",
+      "category": "",
+      "tags": [],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": null,
+      "deleted": true,
+      "completed": false
+    },
+    {
+      "id": "4",
+      "title": "Test task sem er lokið",
+      "description": "",
+      "category": "vefforrit",
+      "tags": [],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": 1635638500000,
+      "deleted": false,
+      "completed": true
+    },
+    {
+      "id": "5",
+      "title": "Hönnun á útliti",
+      "description": "Við verðum að fá alvöru hönnun, þetta gengur ekki lengur",
+      "category": "vefforrit",
+      "tags": ["framendi", "hönnun"],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": null,
+      "deleted": false,
+      "completed": false
+    },
+    {
+      "id": "6",
+      "title": "Útfæra nýtt gagnagrunnsskema",
+      "description": "Samræma við nýjustu hönnunarskjöl",
+      "category": "vefþjónustur",
+      "tags": ["bakendi", "gagnagrunnur"],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": 1636848500000,
+      "deleted": false,
+      "completed": false
+    },
+    {
+      "id": "7",
+      "title": "v1.5 af vefþjónustuskilum",
+      "description": "Farið að blokka næsta sprett",
+      "category": "vefþjónustur",
+      "tags": ["bakendi"],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": 1636498500000,
+      "deleted": false,
+      "completed": false
+    },
+    {
+      "id": "8",
+      "title": "Ráða verkefnastjóra",
+      "description": "Við erum mjög óskipulögð, sem er mjög kaldhæðið miðað við verkefnið sem við erum að vinna",
+      "category": "skipulag",
+      "tags": ["ráðning"],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": 1635498500000,
+      "deleted": false,
+      "completed": false
+    },
+    {
+      "id": "9",
+      "title": "Velja framendaframework til að vinna í",
+      "description": "Vanilla JS er fínt, en við vinnum þetta hraðar ef við veljum gott framework",
+      "category": "vefforrit",
+      "tags": ["framendi", "framework"],
+      "priority": false,
+      "modified": 1635638400000,
+      "due": null,
+      "deleted": false,
+      "completed": false
+    }
+  ],
+  "categories": [
+    {
+      "id": "vefforrit",
+      "title": "Vefforrit"
+    },
+    {
+      "id": "skipulag",
+      "title": "Skipulag"
+    },
+    {
+      "id": "vefþjónustur",
+      "title": "Vefþjónustur"
+    }
+  ]
+}
