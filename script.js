@@ -1,3 +1,5 @@
+import { el } from "./lib/helpers.js";
+
 let takki = document.querySelector("#testTakki");
 let iTitill = document.querySelector("#inputTitill");
 let iLysing = document.querySelector("#inputLysing");
@@ -21,8 +23,9 @@ function nyttShit() {
 }
 
 function builder(id,tit,lys,dag,flo,tag,lit) {
+function builder(id,tit,lys,dag,flo,tags,lit) {
   let clone = template.content.cloneNode(true);
-  let tags = clone.querySelectorAll(".tag");
+  let tagContainer = clone.querySelector(".tags");
   clone.querySelector(".titill").textContent = tit;
   clone.querySelector(".lysing").textContent = lys;
   clone.querySelector(".dags").textContent = dag;
@@ -31,11 +34,9 @@ function builder(id,tit,lys,dag,flo,tag,lit) {
   card.style.borderColor = lit
   let idToDel = id;
 
-  for (let i = 0; i < 3; i++) {
-    // console.log(tag[i])
-    if (tag[i] === "") tags[i].style.display = "none"
-    tags[i].textContent = tag[i];
-  }
+  for (const tag of tags) {
+		tagContainer.appendChild(el("li", tag));
+	}
 
   clone.querySelector("#delete").addEventListener("click",(e) => {
     card.remove()

@@ -51,12 +51,22 @@ main {
   font-size: 1.25em;
 }
 
-.tag {
+.tags {
+	list-style: none;
+	order: 3;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+}
+
+.tags li {
   background: lightgray;
   padding: 0.25em;
   border: 2px solid black;
   border-radius: 7px;
   font-size: 0.75rem;
+	display: inline-block;
 }
 
 .nedst {
