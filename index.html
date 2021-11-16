@@ -26,17 +26,20 @@
 
 		<template id="template">
 			<div class="card">
-				<textarea class="titill" type="text"><!-- Titill á task --></textarea>
-				<textarea class="lysing"><!-- Lýsing á verkefni, ef einhver --></textarea>
-				<div class="nedst">
-                    <button class="addTag"> + </button>
-					<ul class="tags"></ul>
+				<div class="efst">
+					<textarea class="titill" type="text"><!-- Titill á task --></textarea>
+					<input type="checkbox" class="check">
 				</div>
-                <span class="dags"><!-- 10. nóv	 --></span>
-				<div class="fogd">
-					<span class="flokkur"><!-- Flokkur --></span>
-					<button id="delete">Eyða</button>
-				</div>
+					<textarea class="lysing"><!-- Lýsing á verkefni, ef einhver --></textarea>
+					<div class="nedst">
+						<button class="addTag"> + </button>
+						<ul class="tags"></ul>
+					</div>
+					<span class="dags"><!-- 10. nóv	 --></span>
+					<div class="fogd">
+						<span class="flokkur"><!-- Flokkur --></span>
+						<button id="delete">Eyða</button>
+					</div>
 			</div>
 		</template>
 		<script type="module" src="script.js"></script>

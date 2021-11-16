@@ -30,7 +30,7 @@ main {
   margin: 0 auto;
 }
 
-input, input:focus {
+input:not(.check), input:not(.check):focus {
   width: 100%;
   border: none;
   outline: none !important;
@@ -56,10 +56,46 @@ input, input:focus {
   font-weight: bold;
 }
 
+.efst {
+  display: flex;
+}
+
 .titill {
   margin-top: 0;
   font-size: 1.25em;
 }
+
+.check {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  margin: 0;
+  height: 2em;
+  width: 2em;
+  border: 2px solid black;
+  /* background: blue; */
+  border-radius: 7px;
+  display: grid;
+  place-content: center;
+}
+
+.check::before {
+  content: "";
+  width: 1.5em;
+  height: 1.5em;
+  transform: scale(0);
+  transition: 0.15s;
+  border-radius: 50px;
+  box-shadow: inset 1em 1em black;
+  /* background-color: red; */
+  transform-origin: center;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.check:checked::before {
+  transform: scale(1);
+}
+
 
 .lysing ,.lysing:focus, .titill, .titill:focus {
   /* font-size: 0.75em; */

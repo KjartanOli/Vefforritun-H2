@@ -35,6 +35,7 @@ function builder(id,tit,lys,dag,flo,tags,lit) {
   let tagContainer = clone.querySelector(".tags");
   let addTag = clone.querySelector(".addTag")
   let category = clone.querySelector(".flokkur")
+  let checkbox = clone.querySelector(".check")
   
   title.value = tit;
   resizeTitle(title)
@@ -79,6 +80,14 @@ function builder(id,tit,lys,dag,flo,tags,lit) {
       tagContainer.appendChild(el("li",t));
     }
   })
+
+  checkbox.addEventListener('change', (e) => {
+    if (checkbox.checked) {
+      console.log("Checkbox is checked..");
+    } else {
+      console.log("Checkbox is not checked..");
+    }
+  });
 
   clone.querySelector("#delete").addEventListener("click",(e) => {
     card.remove()
