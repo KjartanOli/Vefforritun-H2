@@ -151,8 +151,10 @@ input:not(.check), input:not(.check):focus {
 }
 
 .tags input {
-  width: 90%;
+  width: 100%;
   background: lightgray;
+  padding: 0;
+  padding-right: 0.175em;
 }
 
 .nedst {

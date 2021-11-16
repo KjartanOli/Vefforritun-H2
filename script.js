@@ -60,24 +60,28 @@ function builder(id,tit,lys,dag,flo,tags,lit) {
 
   for (const tag of tags) {
     let t = el("input")
+    let li = el("li", t)
     t.value = tag;
+    resizeTag(t)
+    tagContainer.appendChild(li);
     t.addEventListener("change",(e) => {
       console.log(t.value);
       resizeTag(t)
+      if (t.value === "") li.remove();
     })
-    resizeTag(t)
-    tagContainer.appendChild(el("li", t));
 	}
 
   addTag.addEventListener("click",(e) => {
     if (tagContainer.childElementCount < tagUpperLimit) {
       let t = el("input")
+      let li = el("li", t)
       t.setAttribute("placeholder","tag")
       t.addEventListener("change",(e) => {
         console.log(t.value);
         resizeTag(t)
+        if (t.value === "") li.remove();
       })
-      tagContainer.appendChild(el("li",t));
+      tagContainer.appendChild(li);
     }
   })
 
@@ -205,6 +209,7 @@ function resizeTag(t) {
   if (t.value.length > sizeMagicNum) {
     t.setAttribute("size",t.value.length-sizeMagicNum)
   }
+  
   else {
     t.setAttribute("size",1)
   }
