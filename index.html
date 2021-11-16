@@ -26,12 +26,13 @@
 
 		<template id="template">
 			<div class="card">
-				<h1 class="titill"><!-- Titill á task --></h1>
-				<p class="lysing"><!-- Lýsing á verkefni, ef einhver --></p>
+				<input class="titill" type="text"><!-- Titill á task -->
+				<textarea class="lysing"><!-- Lýsing á verkefni, ef einhver --></textarea>
 				<div class="nedst">
+                    <button class="addTag">+</button>
 					<ul class="tags"></ul>
-					<span class="dags"><!-- 10. nóv	 --></span>
 				</div>
+                <span class="dags"><!-- 10. nóv	 --></span>
 				<div class="fogd">
 					<span class="flokkur"><!-- Flokkur --></span>
 					<button id="delete">Eyða</button>

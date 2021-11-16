@@ -23,12 +23,29 @@ function nyttShit() {
 }
 
 function builder(id,tit,lys,dag,flo,tags,lit) {
+  
+  
   let clone = template.content.cloneNode(true);
+  let title = clone.querySelector(".titill");
+  let description = clone.querySelector(".lysing");
+  let date = clone.querySelector(".dags");
   let tagContainer = clone.querySelector(".tags");
-  clone.querySelector(".titill").textContent = tit;
-  clone.querySelector(".lysing").textContent = lys;
-  clone.querySelector(".dags").textContent = dag;
-  clone.querySelector(".flokkur").textContent = flo;
+  let addTag = clone.querySelector(".addTag")
+  let category = clone.querySelector(".flokkur")
+  
+  title.value = tit;
+  title.addEventListener("change",(e) => {
+    console.log(title.value)
+  });
+
+  description.value = lys;
+  description.addEventListener("change",(e) => {
+    console.log(description.value)
+  });
+
+
+  date.value = dag;
+  category.textContent = flo;
   let card = clone.querySelector(".card");
   card.style.borderColor = lit
   let idToDel = id;
@@ -36,6 +53,12 @@ function builder(id,tit,lys,dag,flo,tags,lit) {
   for (const tag of tags) {
 		tagContainer.appendChild(el("li", tag));
 	}
+
+  addTag.addEventListener("click",(e) => {
+    let t = el("input")
+    t.setAttribute("placeholder","tag")
+    tagContainer.appendChild(el("li",t));
+  })
 
   clone.querySelector("#delete").addEventListener("click",(e) => {
     card.remove()
