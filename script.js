@@ -1,4 +1,5 @@
 import { el } from "./lib/helpers.js";
+import { addCategory, getCategories, createGategoryCreator } from "./lib/categories.js";
 
 let takki = document.querySelector("#testTakki");
 let iTitill = document.querySelector("#inputTitill");
@@ -22,14 +23,33 @@ function nyttShit() {
   builder(uppl.ID,uppl.Titill,uppl.Lysing,uppl.Dags,uppl.Flokkur,uppl.Tags,uppl.Litur);
 }
 
-function builder(id,tit,lys,dag,flo,tags,lit) {
+function builder(id,tit,lys,dag, category ,tags,lit) {
   let clone = template.content.cloneNode(true);
   let tagContainer = clone.querySelector(".tags");
   clone.querySelector(".titill").textContent = tit;
   clone.querySelector(".lysing").textContent = lys;
   clone.querySelector(".dags").textContent = dag;
-  clone.querySelector(".flokkur").textContent = flo;
+  const categorySelect = clone.querySelector(".category");
   let card = clone.querySelector(".card");
+	for (const cat of getCategories()) {
+		const c = el("option", cat.title);
+		c.setAttribute("value", cat.id);
+		if (cat.id === category) {
+			c.setAttribute("selected", "true");
+		}
+		categorySelect.appendChild(c);
+	}
+	const newCat = el("option", "Nýr flokkur");
+	newCat.setAttribute("value", "new");
+	categorySelect.appendChild(newCat);
+
+	categorySelect.addEventListener("change", () => {
+		console.log(categorySelect.value)
+		if (categorySelect.value === "new") {
+			createGategoryCreator(categorySelect)()
+		}
+	})
+
   card.style.borderColor = lit
   let idToDel = id;
 
@@ -92,32 +112,39 @@ function writeJson() {
 async function onStart() {
   // let geymdurListi = localStorage.getItem("listi");
   // let parsedListi = JSON.parse(geymdurListi);
+	let items, cats;
+	if (localStorage.getItem("listi") !== null) {
+		try {
+			let data = await fetch(new URL("data.json", window.location.href));
+			data = await data.json();
+			items = data.items;
+			cats = data.categories;
+		}
+		catch (e) {
+			console.log(e);
+		}
+	}
 
-	let parsedListi;
-	try {
-		const data = await fetch(new URL("data.json", window.location.href));
-		parsedListi = await data.json();
+	const categories = localStorage.getItem("categories")
+	if (categories === null) {
+		for (const cat of cats) {
+			addCategory(cat);
+		}
 	}
-	catch (e) {
-		console.log(e);
+	else {
+		for (const cat of JSON.parse(categories)) {
+			addCategory(cat);
+		}
 	}
-	console.log(parsedListi)
-  for (const item of parsedListi.items) {
+	console.log(items)
+	console.log(getCategories())
+  for (const item of items) {
     // listi.push(key);
     // builder(key.ID,key.Titill,key.Lysing,key.Dags,key.Flokkur,key.Tags,key.Litur)
 		builder(item.id, item.title, item.description, item.date, item.category, item.tags, "#000000")
   }
 }
 
-function empty(element) {
-  if (!element || !element.firstChild) {
-    return;
-  }
-
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-}
 
 function dateFormat(d) {
   let out = "";
@@ -127,4 +154,4 @@ function dateFormat(d) {
   return out;
 }
 
-if (localStorage.getItem("listi") !== null) onStart();
+onStart();
