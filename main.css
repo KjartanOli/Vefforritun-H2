@@ -84,7 +84,7 @@ input:not(.check), input:not(.check):focus {
   width: 1.5em;
   height: 1.5em;
   transform: scale(0);
-  transition: 0.15s;
+  transition: 0.1s;
   border-radius: 50px;
   box-shadow: inset 1em 1em black;
   /* background-color: red; */
