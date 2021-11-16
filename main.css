@@ -77,6 +77,20 @@ input, input:focus {
   height: 6em;
 }
 
+.addTag {
+  display: inline-block;
+  font-size: 0.75em;
+  border: 2px solid black;
+  border-radius: 7px;
+  text-align: center;
+  font-family: monospace;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  margin-bottom: 0.25em;
+  /* align-self: flex-start; */
+}
+
 .tags {
 	list-style: none;
 	/* order: 3; */
@@ -101,7 +115,7 @@ input, input:focus {
 }
 
 .tags input {
-  width: 95%;
+  width: 90%;
   background: lightgray;
 }
 
@@ -109,8 +123,9 @@ input, input:focus {
   margin-bottom: 1em;
   display: flex;
   flex-direction: row;
-  gap: 1em;
-  justify-content: flex-start;
+  gap: 0.5em;
+  justify-content: flex-center;
+  align-items: center;
 }
 
 .fogd {
