@@ -11,6 +11,21 @@ main {
   justify-content: center;
 }
 
+button, .category {
+  border: 2px solid black;
+  border-radius: 7px;
+  font-weight: bold;
+  font-family: monospace;
+  cursor: pointer;
+  background: lightgray;
+  transition: 0.075s;
+}
+
+button:hover, button:focus-visible {
+  color: white;
+  background: rgb(82, 82, 94);
+}
+
 .takkar {
   display: flex;
   flex-direction: column;
@@ -117,14 +132,8 @@ input:not(.check), input:not(.check):focus {
 .addTag {
   display: inline-block;
   font-size: 0.75em;
-  border: 2px solid black;
-  border-radius: 7px;
   text-align: center;
-  font-family: monospace;
-  font-weight: bold;
-  cursor: pointer;
   padding: 0.25em 0.5em;
-  /* align-self: flex-start; */
 }
 
 .tags {
@@ -165,4 +174,17 @@ input:not(.check), input:not(.check):focus {
 .fogd {
   display: flex;
   justify-content: space-between;
+}
+
+.category {
+	padding: 0.125em;
+}
+
+.newCat {
+  display: flex;
+}
+
+.dags {
+  text-align: center;
+  /* font-style: italic; */
 }

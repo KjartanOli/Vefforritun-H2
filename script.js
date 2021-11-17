@@ -45,13 +45,14 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
 
   description.value = lys;
   resizeDescription(description)
-  description.addEventListener("change",(e) => {
-    console.log(description.value)
+  description.addEventListener("input",(e) => {
+    // console.log(description.value)
     resizeDescription(description)
   });
 
 
   date.value = dag;
+
   let card = clone.querySelector(".card");
 	for (const cat of getCategories()) {
 		const c = el("option", cat.title);
@@ -61,6 +62,7 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
 		}
 		categorySelect.appendChild(c);
 	}
+
 	const newCat = el("option", "Nýr flokkur");
 	newCat.setAttribute("value", "new");
 	categorySelect.appendChild(newCat);
@@ -93,6 +95,7 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
       let t = el("input")
       let li = el("li", t)
       t.setAttribute("placeholder","tag")
+      t.setAttribute("size","10")
       t.addEventListener("change",(e) => {
         console.log(t.value);
         resizeTag(t)
@@ -225,7 +228,7 @@ function resizeDescription(d) {
     d.style.height = "2em"
   }
   else {
-    d.style.height = Math.floor(d.value.length / 51) + 2 +"em"
+    d.style.height = Math.floor(d.value.length / 45) + 2 +"em"
   }
 }
 
