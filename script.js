@@ -34,7 +34,6 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
   let tagContainer = clone.querySelector(".tags");
   const categorySelect = clone.querySelector(".category");
   let addTag = clone.querySelector(".addTag")
-  let category = clone.querySelector(".flokkur")
   let checkbox = clone.querySelector(".check")
   
   title.value = tit;
@@ -53,7 +52,6 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
 
 
   date.value = dag;
-  category.textContent = flo;
   let card = clone.querySelector(".card");
 	for (const cat of getCategories()) {
 		const c = el("option", cat.title);
