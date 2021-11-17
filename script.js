@@ -11,6 +11,9 @@ let iTag3 = document.querySelector("#inputTag3");
 let iFlokkur = document.querySelector("#inputFlokkur");
 let iLitur = document.querySelector("#inputLitur");
 
+let tagUpperLimit = 5;
+let sizeMagicNum = 0; //fjöldi stafa sem þarf að taka aftan af input til þess að textinn lýti út fyrir að vera í miðjunni
+
 let listi = [];
 let id = 0;
 
@@ -25,11 +28,32 @@ function nyttShit() {
 
 function builder(id,tit,lys,dag, category ,tags,lit) {
   let clone = template.content.cloneNode(true);
+  let title = clone.querySelector(".titill");
+  let description = clone.querySelector(".lysing");
+  let date = clone.querySelector(".dags");
   let tagContainer = clone.querySelector(".tags");
-  clone.querySelector(".titill").textContent = tit;
-  clone.querySelector(".lysing").textContent = lys;
-  clone.querySelector(".dags").textContent = dag;
   const categorySelect = clone.querySelector(".category");
+  let addTag = clone.querySelector(".addTag")
+  let category = clone.querySelector(".flokkur")
+  let checkbox = clone.querySelector(".check")
+  
+  title.value = tit;
+  resizeTitle(title)
+  title.addEventListener("change",(e) => {
+    console.log(title.value)
+    resizeTitle(title)
+  });
+
+  description.value = lys;
+  resizeDescription(description)
+  description.addEventListener("change",(e) => {
+    console.log(description.value)
+    resizeDescription(description)
+  });
+
+
+  date.value = dag;
+  category.textContent = flo;
   let card = clone.querySelector(".card");
 	for (const cat of getCategories()) {
 		const c = el("option", cat.title);
@@ -54,8 +78,39 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
   let idToDel = id;
 
   for (const tag of tags) {
-		tagContainer.appendChild(el("li", tag));
+    let t = el("input")
+    let li = el("li", t)
+    t.value = tag;
+    resizeTag(t)
+    tagContainer.appendChild(li);
+    t.addEventListener("change",(e) => {
+      console.log(t.value);
+      resizeTag(t)
+      if (t.value === "") li.remove();
+    })
 	}
+
+  addTag.addEventListener("click",(e) => {
+    if (tagContainer.childElementCount < tagUpperLimit) {
+      let t = el("input")
+      let li = el("li", t)
+      t.setAttribute("placeholder","tag")
+      t.addEventListener("change",(e) => {
+        console.log(t.value);
+        resizeTag(t)
+        if (t.value === "") li.remove();
+      })
+      tagContainer.appendChild(li);
+    }
+  })
+
+  checkbox.addEventListener('change', (e) => {
+    if (checkbox.checked) {
+      console.log("Checkbox is checked..");
+    } else {
+      console.log("Checkbox is not checked..");
+    }
+  });
 
   clone.querySelector("#delete").addEventListener("click",(e) => {
     card.remove()
@@ -141,7 +196,9 @@ async function onStart() {
   for (const item of items) {
     // listi.push(key);
     // builder(key.ID,key.Titill,key.Lysing,key.Dags,key.Flokkur,key.Tags,key.Litur)
-		builder(item.id, item.title, item.description, item.date, item.category, item.tags, "#000000")
+    if (!item.deleted) {
+      builder(item.id, item.title, item.description, item.date, item.category, item.tags, "#000000")
+    }
   }
 }
 
@@ -152,6 +209,36 @@ function dateFormat(d) {
   out = out + d.substring(5,7) + "-";
   out = out + d.substring(0,4);
   return out;
+}
+
+function resizeTitle(t) {
+  if (t.value.length > 32) {
+    t.setAttribute("rows",2)
+    t.style.height = "2.4em"
+  }
+  else {
+    t.setAttribute("rows",1);
+    t.style.height = "1.2em"
+  }
+}
+
+function resizeDescription(d) {
+  if (d.value == "") {
+    d.style.height = "2em"
+  }
+  else {
+    d.style.height = Math.floor(d.value.length / 40) + 2 +"em"
+  }
+}
+
+function resizeTag(t) {
+  if (t.value.length > sizeMagicNum) {
+    t.setAttribute("size",t.value.length-sizeMagicNum)
+  }
+  
+  else {
+    t.setAttribute("size",1)
+  }
 }
 
 onStart();
