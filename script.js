@@ -10,6 +10,7 @@ let iTag2 = document.querySelector("#inputTag2");
 let iTag3 = document.querySelector("#inputTag3");
 let iFlokkur = document.querySelector("#inputFlokkur");
 let iLitur = document.querySelector("#inputLitur");
+let sideBarCat = document.querySelector(".flokkarData")
 
 let tagUpperLimit = 5;
 let sizeMagicNum = 0; //fjöldi stafa sem þarf að taka aftan af input til þess að textinn lýti út fyrir að vera í miðjunni
@@ -17,14 +18,14 @@ let sizeMagicNum = 0; //fjöldi stafa sem þarf að taka aftan af input til þes
 let listi = [];
 let id = 0;
 
-takki.addEventListener("click", nyttShit);
-let template = document.querySelector("#template");
-let holder = document.querySelector("#holder");
+// takki.addEventListener("click", nyttShit);
+// let template = document.querySelector("#template");
+// let holder = document.querySelector("#holder");
 
-function nyttShit() {
-  let uppl = writeJson();
-  builder(uppl.ID,uppl.Titill,uppl.Lysing,uppl.Dags,uppl.Flokkur,uppl.Tags,uppl.Litur);
-}
+// function nyttShit() {
+//   let uppl = writeJson();
+//   builder(uppl.ID,uppl.Titill,uppl.Lysing,uppl.Dags,uppl.Flokkur,uppl.Tags,uppl.Litur);
+// }
 
 function builder(id,tit,lys,dag, category ,tags,lit) {
   let clone = template.content.cloneNode(true);
@@ -185,6 +186,8 @@ async function onStart() {
 	if (categories === null) {
 		for (const cat of cats) {
 			addCategory(cat);
+      let nafn = cat.title;
+      console.log(nafn)
 		}
 	}
 	else {
@@ -201,15 +204,6 @@ async function onStart() {
       builder(item.id, item.title, item.description, item.date, item.category, item.tags, "#000000")
     }
   }
-}
-
-
-function dateFormat(d) {
-  let out = "";
-  out = out + d.substring(8,10) + "-";
-  out = out + d.substring(5,7) + "-";
-  out = out + d.substring(0,4);
-  return out;
 }
 
 function resizeTitle(t) {

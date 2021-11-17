@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<main>
-			<div class="takkar">
+			<!-- <div class="takkar">
 				<h1>bæta við</h1>
 				<input type="text" placeholder="Titill" id="inputTitill">
 				<input type="text" placeholder="Lýsing" id="inputLysing">
@@ -20,6 +20,30 @@
 				<input type="text" placeholder="FLokkur" id="inputFlokkur">
 				<input type="color" id="inputLitur">
 				<button id="testTakki">Test</button>
+			</div> -->
+			<div id="sidebar">
+				<div class="sideData">
+					<p>Verkefni</p>
+					<span id="nVerkefni">0</span>
+				</div>
+				<div class="sideData">
+					<p>Kláruð verkefni</p>
+					<span id="nKlarudVerkefni">0</span>
+				</div>
+
+				<h2>FLokkar</h2>
+				<div class="flokkarData">
+					<div class="sideData">
+						<p></p><span></span>
+					</div>
+				</div>
+
+				<h2>Tags</h2>
+				<div class="flokkarData">
+					<div class="sideData">
+						<p></p><span></span>
+					</div>
+				</div>
 			</div>
 			<div id="holder"></div>
 		</main>
@@ -36,7 +60,9 @@
 						<ul class="tags"></ul>
 					</div>
 					<div class="fogd">
-						<select class="category"><!-- Flokkur --></select>
+						<div>
+							<select class="category"><!-- Flokkur --></select>
+						</div>
 						<input type="date" class="dags"><!-- 10. nóv	 -->
 						<button id="delete">x</button>
 					</div>

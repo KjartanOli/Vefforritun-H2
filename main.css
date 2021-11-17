@@ -188,3 +188,14 @@ input:not(.check), input:not(.check):focus {
   text-align: center;
   /* font-style: italic; */
 }
+
+.sideData {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sideData p {
+  margin: 0;
+}
