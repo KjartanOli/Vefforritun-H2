@@ -124,19 +124,16 @@ input:not(.check), input:not(.check):focus {
   font-weight: bold;
   cursor: pointer;
   padding: 0.25em 0.5em;
-  margin-bottom: 0.25em;
   /* align-self: flex-start; */
 }
 
 .tags {
 	list-style: none;
-	/* order: 3; */
 	display: flex;
-	/* justify-content: space-around; */
   padding-inline-start: 0;
   flex-wrap: wrap;
   margin: 0;
-	/* width: 30%; */
+  gap: 0.25em;
 }
 
 .tags li {
@@ -146,8 +143,6 @@ input:not(.check), input:not(.check):focus {
   border-radius: 7px;
   font-size: 0.75rem;
 	display: inline-block;
-  margin-right: .25em;
-  margin-bottom: .25em;
   width: fit-content;
 }
 

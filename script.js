@@ -201,7 +201,7 @@ function resizeDescription(d) {
     d.style.height = "2em"
   }
   else {
-    d.style.height = Math.floor(d.value.length / 40) + 2 +"em"
+    d.style.height = Math.floor(d.value.length / 51) + 2 +"em"
   }
 }
 
