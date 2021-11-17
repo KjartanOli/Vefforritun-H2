@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Test</title>
-		<link rel="stylesheet" href="main.css" />
-	</head>
-	<body>
-		<main>
-			<!-- <div class="takkar">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Test</title>
+	<link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+	<main>
+		<!-- <div class="takkar">
 				<h1>bæta við</h1>
 				<input type="text" placeholder="Titill" id="inputTitill">
 				<input type="text" placeholder="Lýsing" id="inputLysing">
@@ -21,53 +23,56 @@
 				<input type="color" id="inputLitur">
 				<button id="testTakki">Test</button>
 			</div> -->
-			<div id="sidebar">
-				<div class="sideData">
-					<p>Verkefni</p>
-					<span id="nVerkefni">0</span>
-				</div>
-				<div class="sideData">
-					<p>Kláruð verkefni</p>
-					<span id="nKlarudVerkefni">0</span>
-				</div>
+		<div id="sidebar">
+			<div class="sideData">
+				<p>Verkefni</p>
+				<span id="nVerkefni">0</span>
+			</div>
+			<div class="sideData">
+				<p>Kláruð verkefni</p>
+				<span id="nKlarudVerkefni">0</span>
+			</div>
 
-				<h2>FLokkar</h2>
-				<div class="flokkarData">
-					<div class="sideData">
-						<p></p><span></span>
-					</div>
-				</div>
-
-				<h2>Tags</h2>
-				<div class="flokkarData">
-					<div class="sideData">
-						<p></p><span></span>
-					</div>
+			<h2>FLokkar</h2>
+			<div class="flokkarData">
+				<div class="sideData">
+					<p></p><span></span>
 				</div>
 			</div>
-			<div id="holder"></div>
-		</main>
 
-		<template id="template">
-			<div class="card">
-				<div class="efst">
-					<textarea class="titill" type="text"><!-- Titill á task --></textarea>
-					<input type="checkbox" class="check">
+			<h2>Tags</h2>
+			<div class="flokkarData">
+				<div class="sideData">
+					<p></p><span></span>
 				</div>
-					<textarea class="lysing"><!-- Lýsing á verkefni, ef einhver --></textarea>
-					<div class="nedst">
-						<button class="addTag"> + </button>
-						<ul class="tags"></ul>
-					</div>
-					<div class="fogd">
-						<div>
-							<select class="category"><!-- Flokkur --></select>
-						</div>
-						<input type="date" class="dags"><!-- 10. nóv	 -->
-						<button id="delete">x</button>
-					</div>
 			</div>
-		</template>
-		<script type="module" src="script.js"></script>
-	</body>
+		</div>
+		<div id="holder"></div>
+	</main>
+
+	<template id="template">
+		<div class="card">
+			<div class="efst">
+				<textarea class="titill" type="text"><!-- Titill á task --></textarea>
+				<input type="checkbox" class="check">
+			</div>
+			<textarea class="lysing"><!-- Lýsing á verkefni, ef einhver --></textarea>
+			<div class="nedst">
+				<button class="addTag"> + </button>
+				<ul class="tags"></ul>
+			</div>
+			<div class="fogd">
+				<div>
+					<select class="category">
+						<!-- Flokkur -->
+					</select>
+				</div>
+				<input type="date" class="dags"><!-- 10. nóv	 -->
+				<button id="delete">x</button>
+			</div>
+		</div>
+	</template>
+	<script type="module" src="script.js"></script>
+</body>
+
 </html>
