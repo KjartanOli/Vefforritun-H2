@@ -34,9 +34,8 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
   let tagContainer = clone.querySelector(".tags");
   const categorySelect = clone.querySelector(".category");
   let addTag = clone.querySelector(".addTag")
-  let category = clone.querySelector(".flokkur")
   let checkbox = clone.querySelector(".check")
-  
+
   title.value = tit;
   resizeTitle(title)
   title.addEventListener("change",(e) => {
@@ -53,7 +52,6 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
 
 
   date.value = dag;
-  category.textContent = flo;
   let card = clone.querySelector(".card");
 	for (const cat of getCategories()) {
 		const c = el("option", cat.title);
@@ -168,7 +166,7 @@ async function onStart() {
   // let geymdurListi = localStorage.getItem("listi");
   // let parsedListi = JSON.parse(geymdurListi);
 	let items, cats;
-	if (localStorage.getItem("listi") !== null) {
+	if (localStorage.getItem("listi") === null || localStorage.getItem("categories")) {
 		try {
 			let data = await fetch(new URL("data.json", window.location.href));
 			data = await data.json();
@@ -182,6 +180,7 @@ async function onStart() {
 
 	const categories = localStorage.getItem("categories")
 	if (categories === null) {
+		console.log(cats)
 		for (const cat of cats) {
 			addCategory(cat);
 		}
@@ -235,7 +234,7 @@ function resizeTag(t) {
   if (t.value.length > sizeMagicNum) {
     t.setAttribute("size",t.value.length-sizeMagicNum)
   }
-  
+
   else {
     t.setAttribute("size",1)
   }
