@@ -1,5 +1,5 @@
 import { el } from "./lib/helpers.js";
-import { addCategory, getCategories, createGategoryCreator } from "./lib/categories.js";
+import { addCategory, getCategories, createGategoryCreator, showCategories } from "./lib/categories.js";
 
 let takki = document.querySelector("#testTakki");
 let iTitill = document.querySelector("#inputTitill");
@@ -198,6 +198,8 @@ async function onStart() {
 	}
 	console.log(items)
 	console.log(getCategories())
+  showCategories();
+
   for (const item of items) {
     // listi.push(key);
     // builder(key.ID,key.Titill,key.Lysing,key.Dags,key.Flokkur,key.Tags,key.Litur)
