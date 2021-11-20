@@ -11,6 +11,10 @@ main {
   justify-content: center;
 }
 
+p {
+  margin: 0;
+}
+
 button, .category {
   border: 2px solid black;
   border-radius: 7px;
@@ -37,10 +41,6 @@ button:hover, button:focus-visible {
   margin: .125em 0;
 }
 
-#inputLitur {
-  width: auto;
-}
-
 #holder {
   margin: 0 auto;
 }
@@ -58,7 +58,10 @@ input:not(.check), input:not(.check):focus {
 .card {
   /* display: flex;
   flex-direction: column; */
-  width: 400px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1em;
+  width: 700px;
   border: 5px solid white;
   margin: 1em;
   border-radius: 10px;
@@ -67,16 +70,30 @@ input:not(.check), input:not(.check):focus {
 
 .titill,
 .tag,
-.flokkur {
+.flokkur,
+.Otitill {
   font-weight: bold;
 }
 
 .efst {
-  display: flex;
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
-.titill {
-  margin-top: 0;
+.efst-title {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.efst-checks {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.titill, .Otitill {
+  margin: 0;
   font-size: 1.25em;
 }
 
@@ -95,7 +112,7 @@ input:not(.check), input:not(.check):focus {
   cursor: pointer;
 }
 
-.check::before {
+.done::before {
   content: "";
   width: 1.5em;
   height: 1.5em;
@@ -108,10 +125,25 @@ input:not(.check), input:not(.check):focus {
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
-.check:checked::before {
+.done:checked::before {
   transform: scale(1);
 }
 
+.important::before {
+  content: "";
+  width: 1.5em;
+  height: 1.5em;
+  transform: scale(0);
+  transition: 0.1s;
+  border-radius: 50px;
+  box-shadow: inset 1em 1em black;
+  /* background-color: red; */
+  transform-origin: center;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);}
+
+.important:checked::before {
+  transform: scale(1);
+}
 
 .lysing ,.lysing:focus, .titill, .titill:focus {
   /* font-size: 0.75em; */
@@ -125,11 +157,50 @@ input:not(.check), input:not(.check):focus {
   height: 2.3em;
 }
 
+.nedri-lysing {
+  grid-row: span 5;
+}
+
+.nedri-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.nedri-date p {
+  margin-bottom: 0.5em;
+  text-align: end;
+}
+.dags {
+  text-align: center;
+  background: lightgray;
+  border: 2px solid black !important;
+  width: auto !important;
+  border-radius: 7px;
+}
+
 .lysing {
-  height: 6em;
+  height: 100%;
+}
+
+.nedri-tags {
+  grid-column: 2;
+  margin-bottom: 0.5em;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* gap: 0.5em; */
+  /* justify-content: flex-center; */
+  align-items: center;
+}
+
+.nedri-tags p {
+  grid-column: span 2;
+  margin-bottom: 0.5em;
+  justify-self: flex-end;
 }
 
 .addTag {
+  align-self: flex-start;
   display: inline-block;
   font-size: 0.75em;
   text-align: center;
@@ -140,6 +211,8 @@ input:not(.check), input:not(.check):focus {
 	list-style: none;
 	display: flex;
   padding-inline-start: 0;
+  padding-inline-end: 0;
+  justify-content: flex-end;
   flex-wrap: wrap;
   margin: 0;
   gap: 0.25em;
@@ -162,18 +235,37 @@ input:not(.check), input:not(.check):focus {
   padding-right: 0.175em;
 }
 
-.nedst {
-  margin-bottom: 0.5em;
+.nedri-flokkur {
+  grid-column: 2;
   display: flex;
-  flex-direction: row;
-  gap: 0.5em;
-  justify-content: flex-center;
-  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
-.fogd {
+.nedri-flokkur p {
+  margin-bottom: 0.5em;
+  text-align: end;
+}
+
+.nedri-delete {
   display: flex;
-  justify-content: space-between;
+  grid-column: 2;
+  justify-content: flex-end;
+}
+
+#delete:hover .Capa_1, #delete:focus-visible .Capa_1 {
+  filter: invert();
+}
+
+.Capa_1 {
+  width: 2em;
+  height: 2em;
+  transition: 0.075s;
+  -moz-transition: 0.075s -moz-filter ease-in-out;
+}
+
+.Capa_1:hover, .Capa_1:focus-visible {
+  filter: invert();
 }
 
 .category {
@@ -184,10 +276,7 @@ input:not(.check), input:not(.check):focus {
   display: flex;
 }
 
-.dags {
-  text-align: center;
-  /* font-style: italic; */
-}
+
 
 .sideData {
   display: flex;

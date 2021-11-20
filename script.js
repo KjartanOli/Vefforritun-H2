@@ -12,7 +12,7 @@ let iFlokkur = document.querySelector("#inputFlokkur");
 let iLitur = document.querySelector("#inputLitur");
 let sideBarCat = document.querySelector(".flokkarData")
 
-let tagUpperLimit = 5;
+let tagUpperLimit = 6;
 let sizeMagicNum = 0; //fjöldi stafa sem þarf að taka aftan af input til þess að textinn lýti út fyrir að vera í miðjunni
 
 let listi = [];
@@ -35,9 +35,21 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
   let tagContainer = clone.querySelector(".tags");
   const categorySelect = clone.querySelector(".category");
   let addTag = clone.querySelector(".addTag")
-  let checkbox = clone.querySelector(".check")
+  let checkboxImp = clone.querySelector(".important")
+  let checkboxDone = clone.querySelector(".done")
+  let efst = clone.querySelector(".efst")
+  let Ctitle = clone.querySelector(".Otitill"); //closed title
+  let Cdate = clone.querySelector(".Odags"); //closed date
+  let Odescription = clone.querySelector(".nedri-lysing");
+  let Odate = clone.querySelector(".nedri-date");
+  let Ocategory = clone.querySelector(".nedri-flokkur");
+  let Otags = clone.querySelector(".nedri-tags");
+  let Odeleted = clone.querySelector(".nedri-delete");
+
 
   title.value = tit;
+  title.style.display = "none"
+  Ctitle.textContent = title.value;
   resizeTitle(title)
   title.addEventListener("change",(e) => {
     console.log(title.value)
@@ -53,6 +65,8 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
 
 
   date.value = dag;
+  console.log(date.value)
+  Cdate.textContent = date.value;
 
   let card = clone.querySelector(".card");
 	for (const cat of getCategories()) {
@@ -83,7 +97,8 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
     let li = el("li", t)
     t.value = tag;
     resizeTag(t)
-    tagContainer.appendChild(li);
+    tagContainer.replaceChild(li,addTag);
+    tagContainer.appendChild(addTag);
     t.addEventListener("change",(e) => {
       console.log(t.value);
       resizeTag(t)
@@ -101,13 +116,29 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
         console.log(t.value);
         resizeTag(t)
         if (t.value === "") li.remove();
+        if (tagContainer.childElementCount < tagUpperLimit-1) {
+          tagContainer.appendChild(addTag);
+        }
       })
-      tagContainer.appendChild(li);
+      tagContainer.replaceChild(li,addTag);
+      if (tagContainer.childElementCount < tagUpperLimit-1) {
+        tagContainer.appendChild(addTag);
+      }
     }
   })
 
-  checkbox.addEventListener('change', (e) => {
-    if (checkbox.checked) {
+  checkboxImp.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (checkboxImp.checked) {
+      console.log("Checkbox is checked..");
+    } else {
+      console.log("Checkbox is not checked..");
+    }
+  });
+
+  checkboxDone.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (checkboxDone.checked) {
       console.log("Checkbox is checked..");
     } else {
       console.log("Checkbox is not checked..");
@@ -126,6 +157,37 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
       }
     }
   })
+
+  title.style.display = "none";
+  Odescription.style.display = "none";
+  Odate.style.display = "none";
+  Ocategory.style.display = "none";
+  Otags.style.display = "none";
+  Odeleted.style.display = "none";
+
+  efst.addEventListener("click", (e) => {
+    if (title.style.display === "none") {
+      Ctitle.style.display = "none"
+      efst.style.display = "grid"
+      title.style.display = "grid";
+      Odescription.style.display = "block";
+      Odate.style.display = "flex";
+      Ocategory.style.display = "flex";
+      Otags.style.display = "grid";
+      Odeleted.style.display = "flex";
+    }
+    else {
+      Ctitle.textContent = title.value;
+      Ctitle.style.display = "block"
+      title.style.display = "none";
+      Odescription.style.display = "none";
+      Odate.style.display = "none";
+      Ocategory.style.display = "none";
+      Otags.style.display = "none";
+      Odeleted.style.display = "none";
+    }
+  })
+
 
   holder.appendChild(clone)
 }
