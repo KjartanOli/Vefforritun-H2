@@ -152,6 +152,7 @@ input:not(.check), input:not(.check):focus {
   border: none;
   resize: none;
   outline: none;
+  padding: 0;
 }
 
 .titill {
@@ -159,7 +160,7 @@ input:not(.check), input:not(.check):focus {
 }
 
 .nedri-lysing {
-  grid-row: span 5;
+  grid-row: span 4;
 }
 
 .nedri-date {

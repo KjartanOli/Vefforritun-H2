@@ -62,10 +62,10 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
   })
 
   description.value = lys;
-  resizeDescription(description)
-  description.addEventListener("input",(e) => {
-    // console.log(description.value)
-    resizeDescription(description)
+  // resizeDescription(description)
+  description.addEventListener("change",(e) => {
+    console.log(description.value)
+    // resizeDescription(description)
   });
 
 
