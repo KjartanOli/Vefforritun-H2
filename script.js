@@ -52,9 +52,14 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
   Ctitle.textContent = title.value;
   resizeTitle(title)
   title.addEventListener("change",(e) => {
+    e.stopPropagation()
     console.log(title.value)
     resizeTitle(title)
   });
+
+  title.addEventListener("click",(e) => {
+    e.stopPropagation()
+  })
 
   description.value = lys;
   resizeDescription(description)
@@ -65,8 +70,10 @@ function builder(id,tit,lys,dag, category ,tags,lit) {
 
 
   date.value = dag;
-  console.log(date.value)
   Cdate.textContent = date.value;
+  date.addEventListener("change",(e) => {
+    Cdate.textContent = date.value;
+  })
 
   let card = clone.querySelector(".card");
 	for (const cat of getCategories()) {
@@ -272,7 +279,7 @@ async function onStart() {
 }
 
 function resizeTitle(t) {
-  if (t.value.length > 32) {
+  if (t.value.length > 38) {
     t.setAttribute("rows",2)
     t.style.height = "2.4em"
   }

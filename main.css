@@ -89,7 +89,8 @@ input:not(.check), input:not(.check):focus {
 .efst-checks {
   display: flex;
   justify-content: flex-end;
-  gap: 1em;
+  align-items: center;
+  gap: 1.5em;
 }
 
 .titill, .Otitill {
