@@ -12,8 +12,6 @@ let iFlokkur = document.querySelector("#inputFlokkur");
 let iLitur = document.querySelector("#inputLitur");
 let sideBarCat = document.querySelector(".flokkarData")
 
-let tagUpperLimit = 5;
-
 let listi = [];
 let id = 0;
 
@@ -25,7 +23,6 @@ let id = 0;
 //   let uppl = writeJson();
 //   builder(uppl.ID,uppl.Titill,uppl.Lysing,uppl.Dags,uppl.Flokkur,uppl.Tags,uppl.Litur);
 // }
-
 
 function takeAndEscape(e) {
   let output = e.value;
@@ -65,17 +62,11 @@ async function onStart() {
   showCategories();
 
   for (const item of items) {
-    // listi.push(key);
-    // builder(key.ID,key.Titill,key.Lysing,key.Dags,key.Flokkur,key.Tags,key.Litur)
 		const element = cache.newItem(item);
 		if (element) {
 			holder.appendChild(element);
 		}
-    // if (!item.deleted) {
-    //   builder(item.id, item.title, item.description, item.date, item.category, item.tags, "#000000")
-    // }
   }
 }
-
 
 onStart();
