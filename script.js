@@ -1,6 +1,5 @@
-import { el } from "./lib/helpers.js";
 import { cache } from "./lib/cache.js";
-import { addCategory, getCategories, createGategoryCreator, showCategories } from "./lib/categories.js";
+import { addCategory, getCategories, showCategories } from "./lib/categories.js";
 
 let takki = document.querySelector("#testTakki");
 let iTitill = document.querySelector("#inputTitill");
