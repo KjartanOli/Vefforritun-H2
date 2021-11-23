@@ -2,9 +2,9 @@ import { cache } from "./lib/cache.js";
 import {
 	addCategory,
 	getCategories,
+	showCategories,
 } from "./lib/categories.js";
 import { el } from "./lib/helpers.js";
-import { showCategories } from "./lib/sideData.js"
 
 async function onStart() {
 	// let geymdurListi = localStorage.getItem("listi");
