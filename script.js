@@ -2,16 +2,16 @@ import { cache } from "./lib/cache.js";
 import {
 	addCategory,
 	getCategories,
-	showCategories,
 } from "./lib/categories.js";
 import { el } from "./lib/helpers.js";
+import { showCategories } from "./lib/stats.js";
 
 async function onStart() {
 	// let geymdurListi = localStorage.getItem("listi");
 	// let parsedListi = JSON.parse(geymdurListi);
 	let remote, cats;
 	let local = JSON.parse(localStorage.getItem("todos"));
-	
+
 	try {
 		let data = await fetch(new URL("data.json", window.location.href));
 		data = await data.json();
@@ -20,7 +20,7 @@ async function onStart() {
 	} catch (e) {
 		console.log(e);
 	}
-	
+
 
 	const categories = localStorage.getItem("categories");
 	if (categories === null) {
