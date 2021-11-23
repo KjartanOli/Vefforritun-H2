@@ -46,7 +46,7 @@ async function onStart() {
 			}
 			if (!element) {
 				element = cache.newItem(localItem);
-				console.log(element)
+				// console.log(element)
 				if (element) {
 					holder.appendChild(element);
 				}
