@@ -5,17 +5,22 @@ body {
   font-family: monospace;
 }
 
+header h1 {
+  text-align: center;
+}
+
 main {
   display: grid;
   grid-template-columns: 1fr 5fr;
   justify-content: center;
 }
 
+
 p {
   margin: 0;
 }
 
-button, .category {
+button, .category, #rada {
   border: 2px solid black;
   border-radius: 7px;
   font-weight: bold;
