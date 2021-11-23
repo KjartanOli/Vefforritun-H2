@@ -66,7 +66,7 @@ async function onStart() {
 	createAddNew();
 }
 
-function createAddNew() {
+export function createAddNew() {
 	let takki = el("button","Bæta við nýju ToDo");
 	takki.setAttribute("class","addNewButton");
 	takki.addEventListener("click", (e) => {
