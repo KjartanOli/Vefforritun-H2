@@ -3,7 +3,8 @@ import {
 	addCategory,
 	getCategories,
 } from "./lib/categories.js";
-import { el } from "./lib/helpers.js";
+import { el, empty } from "./lib/helpers.js";
+import { filter } from "./lib/sort.js";
 import { categoryStats, tagStats } from "./lib/stats.js";
 
 async function onStart() {

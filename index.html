@@ -36,13 +36,16 @@
 					</div>
 				</div>
 			</div>
-			<div id="holder">
-				<select id="rada">
-					<option value="oldest">Raða eftir:</option>
-					<option value="newest">Titil</option>
-					<option value="important">Tímaröð</option>
-					<option value="important">Mikilvægi</option>
-				</select>
+			<div class="holderHolder">
+				<div id="holder"></div>
+				<div class="filterHolder">
+					<label for="rada">Raða eftir: </label>
+					<select id="rada" name="rada">
+						<option value="title">Titil</option>
+						<option value="time">Tímaröð</option>
+						<option value="importance">Mikilvægi</option>
+					</select>
+				</div>
 			</div>
 		</main>
 
