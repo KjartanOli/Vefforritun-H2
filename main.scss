@@ -273,7 +273,7 @@ input:not(.check), input:not(.check):focus {
 }
 
 #delete:hover .Capa_1, #delete:focus-visible .Capa_1 {
-  filter: invert();
+  filter: invert(1);
 }
 
 .Capa_1 {
@@ -284,7 +284,7 @@ input:not(.check), input:not(.check):focus {
 }
 
 .Capa_1:hover, .Capa_1:focus-visible {
-  filter: invert();
+  filter: invert(1);
 }
 
 .category {

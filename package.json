@@ -1,5 +1,18 @@
 {
+  "scripts": {
+    "browser-sync": "browser-sync start --server --files index.html styles.css",
+    "sass": "sass main.scss main.css",
+    "sass-watch": "sass --watch .",
+    "dev": "concurrently npm:sass-watch npm:browser-sync",
+    "lint-scss": "stylelint styles.scss ./**/*.scss"
+  },
   "devDependencies": {
-    "eslint": "^8.2.0"
+    "eslint": "^8.2.0",
+    "browser-sync": "^2.27.5",
+    "concurrently": "^6.2.1",
+    "sass": "^1.42.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0"
   }
 }
