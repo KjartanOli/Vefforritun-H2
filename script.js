@@ -4,7 +4,7 @@ import {
 	getCategories,
 } from "./lib/categories.js";
 import { el } from "./lib/helpers.js";
-import { showCategories } from "./lib/stats.js";
+import { categoryStats, tagStats } from "./lib/stats.js";
 
 async function onStart() {
 	// let geymdurListi = localStorage.getItem("listi");
@@ -60,9 +60,9 @@ async function onStart() {
 			}
 		}
 	}
-	showCategories();
-
-	createAddNew()
+	categoryStats();
+	tagStats();
+	createAddNew();
 }
 
 function createAddNew() {
