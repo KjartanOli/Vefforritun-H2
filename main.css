@@ -290,3 +290,14 @@ input:not(.check), input:not(.check):focus {
 .sideData p {
   margin: 0;
 }
+
+.takkiholder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.addNewButton {
+  padding: 1em;
+  margin-bottom: 1em;
+}
