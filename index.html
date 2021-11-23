@@ -11,25 +11,14 @@
 
 	<body>
 		<main>
-			<!-- <div class="takkar">
-					 <h1>bæta við</h1>
-					 <input type="text" placeholder="Titill" id="inputTitill">
-					 <input type="text" placeholder="Lýsing" id="inputLysing">
-					 <input type="date" placeholder="Dagssetning" id="inputDags">
-					 <input type="text" placeholder="Tag1" id="inputTag1">
-					 <input type="text" placeholder="Tag2" id="inputTag2">
-					 <input type="text" placeholder="Tag3" id="inputTag3">
-					 <input type="text" placeholder="Flokkur" id="inputFlokkur">
-					 <input type="color" id="inputLitur">
-					 <button id="testTakki">Test</button>
-					 </div> -->
 			<div id="sidebar">
+				<h2>Verkefni</h2>
 				<div class="sideData">
-					<p>Verkefni</p>
+					<p>Fjöldi</p>
 					<span id="nVerkefni">0</span>
 				</div>
 				<div class="sideData">
-					<p>Kláruð verkefni</p>
+					<p>Fjöldi kláruð</p>
 					<span id="nKlarudVerkefni">0</span>
 				</div>
 
@@ -47,7 +36,14 @@
 					</div>
 				</div>
 			</div>
-			<div id="holder"></div>
+			<div id="holder">
+				<select id="rada">
+					<option value="oldest">Raða eftir:</option>
+					<option value="newest">Titil</option>
+					<option value="important">Tímaröð</option>
+					<option value="important">Mikilvægi</option>
+				</select>
+			</div>
 		</main>
 
 		<template id="template">
