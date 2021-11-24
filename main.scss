@@ -78,16 +78,47 @@ input:not(.check), input:not(.check):focus {
   gap: 1em;
   /* width: 100%; */
   /* width: 700px; */
-  border: 5px solid white;
+  border: 5px solid #000000;
   margin: 0.5em auto;
   border-radius: 10px;
   padding: 1em;
+
+	.Otitle {
+		display: grid;
+	}
+
+	.title, .nedri-description, .nedri-date, .nedri-flokkur, .nedri-tags, .nedri-delete {
+		display: none;
+	}
 }
 
-.titill,
+.open {
+	.title, .efst {
+		display: grid;
+	}
+
+	.closed-item {
+		display: none;
+	}
+
+	.nedri-description {
+		display: block;
+	}
+
+	.nedri-flokkur, .nedri-date, .nedri-delet {
+		display: flex;
+	}
+
+	.nedri-tags {
+		display: grid;
+	}
+}
+
+
+.title,
 .tag,
 .flokkur,
-.Otitill {
+.Otitle {
   font-weight: bold;
 }
 
@@ -109,7 +140,7 @@ input:not(.check), input:not(.check):focus {
   gap: 1.5em;
 }
 
-.titill, .Otitill {
+.title, .Otitle {
   display: flex;
   margin: 0;
   font-size: 1.25em;
@@ -163,7 +194,7 @@ input:not(.check), input:not(.check):focus {
   transform: scale(1);
 }
 
-.lysing ,.lysing:focus, .titill, .titill:focus {
+.description ,.description:focus, .title, .title:focus {
   /* font-size: 0.75em; */
   width: 100%;
   border: none;
@@ -172,11 +203,11 @@ input:not(.check), input:not(.check):focus {
   padding: 0;
 }
 
-.titill {
+.title {
   height: 2.3em;
 }
 
-.nedri-lysing {
+.nedri-description {
   grid-row: span 4;
 }
 
@@ -190,7 +221,7 @@ input:not(.check), input:not(.check):focus {
   margin-bottom: 0.5em;
   text-align: end;
 }
-.dags {
+.date {
   text-align: center;
   background: lightgray;
   border: 2px solid black !important;
@@ -198,7 +229,7 @@ input:not(.check), input:not(.check):focus {
   border-radius: 7px;
 }
 
-.lysing {
+.description {
   height: 100%;
 }
 
@@ -346,11 +377,11 @@ input:not(.check), input:not(.check):focus {
     width: 100%;
   }
 
-  .titill, .Otitill {
+  .title, .Otitill {
     align-items: center;
   }
 
-  .titill {
+  .title {
     height: 100% !important;
   }
 
@@ -358,7 +389,7 @@ input:not(.check), input:not(.check):focus {
     display: block;
   }
 
-  .nedri-lysing {
+  .nedri-description {
     grid-column: span 2;
   }
 
