@@ -140,7 +140,11 @@ input:not(.check), input:not(.check):focus {
   gap: 1.5em;
 }
 
-.title, .Otitle {
+.Otitle {
+  word-break: break-word;
+}
+
+	.title, .Otitle {
   display: flex;
   margin: 0;
   font-size: 1.25em;
