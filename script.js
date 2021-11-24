@@ -61,7 +61,6 @@ export function createAddNew() {
 	takki.setAttribute("class","addNewButton");
 	let takkiHolder = el("div", takki);
 	takki.addEventListener("click", (e) => {
-		console.log("CreateAddNew")
 		let newCard = cache.newItem(null);
 		takkiHolder.replaceWith(newCard);
 		createAddNew();
