@@ -109,6 +109,10 @@ input:not(.check), input:not(.check):focus {
   gap: 1.5em;
 }
 
+.Otitill {
+  word-break: break-word;
+}
+
 .titill, .Otitill {
   display: flex;
   margin: 0;
