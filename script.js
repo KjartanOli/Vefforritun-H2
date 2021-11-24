@@ -1,7 +1,6 @@
 import { cache } from "./lib/cache.js";
 import {
 	addCategory,
-	getCategories,
 } from "./lib/categories.js";
 import { el, empty } from "./lib/helpers.js";
 import { filter } from "./lib/sort.js";
@@ -35,30 +34,21 @@ async function onStart() {
 	}
 	if (local) {
 		for (const localItem of local) {
-			let element;
+			let inBoth = false;
 			for (const item of remote) {
 				if (item.id === localItem.id) {
-					element = cache.newItem(item.modified > localItem.modified ? item : localItem);
-					if (element) {
-						holder.appendChild(element);
-					}
+					cache.newItem(item.modified > localItem.modified ? item : localItem).insert();
+					inBoth = true;
 					break;
 				}
 			}
-			if (!element) {
-				element = cache.newItem(localItem);
-				// console.log(element)
-				if (element) {
-					holder.appendChild(element);
-				}
+			if (!inBoth) {
+				cache.newItem(localItem).insert();
 			}
 		}
 	} else {
 		for (const item of remote) {
-			const element = cache.newItem(item);
-			if (element) {
-				holder.appendChild(element);
-			}
+			cache.newItem(item).insert();
 		}
 	}
 	categoryStats();
@@ -69,15 +59,15 @@ async function onStart() {
 export function createAddNew() {
 	let takki = el("button","Bæta við nýju ToDo");
 	takki.setAttribute("class","addNewButton");
+	let takkiHolder = el("div", takki);
 	takki.addEventListener("click", (e) => {
 		console.log("CreateAddNew")
 		let newCard = cache.newItem(null);
 		takkiHolder.replaceWith(newCard);
 		createAddNew();
-	})
-	let takkiHolder = el("div",takki)
-	takkiHolder.setAttribute("class","takkiholder")
-	document.querySelector("#holder").appendChild(takkiHolder)
+	});
+	takkiHolder.setAttribute("class","takkiholder");
+	document.querySelector("#holder").appendChild(takkiHolder);
 }
 
 onStart();
