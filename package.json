@@ -4,13 +4,20 @@
     "sass": "sass main.scss main.css",
     "sass-watch": "sass --watch .",
     "dev": "concurrently npm:sass-watch npm:browser-sync",
-    "lint-scss": "stylelint styles.scss ./**/*.scss"
+    "lint-scss": "stylelint styles.scss ./**/*.scss",
+    "lint-js": "eslint ./**/*.js"
+  },
+  "dependencies": {
+    "sass": "^1.43.5"
   },
   "devDependencies": {
-    "eslint": "^8.2.0",
     "browser-sync": "^2.27.5",
     "concurrently": "^6.2.1",
-    "sass": "^1.42.1",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "prettier": "^2.5.0",
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-config-standard": "^22.0.0"

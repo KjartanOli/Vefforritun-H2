@@ -80,11 +80,11 @@ input:not(.check):focus {
 .title,
 .tag,
 .flokkur,
-.open-title {
+.closed-title {
 	font-weight: bold;
 }
 
-.open-title {
+.closed-title {
 	word-break: break-word;
 }
 
@@ -107,7 +107,7 @@ input:not(.check):focus {
 }
 
 .title,
-.open-title {
+.closed-title {
 	display: flex;
 	font-size: 1.25em;
 	margin: 0;
@@ -335,7 +335,7 @@ input:not(.check):focus {
 	}
 
 	.title,
-	.open-title {
+	.closed-title {
 		align-items: center;
 	}
 
@@ -365,7 +365,7 @@ input:not(.check):focus {
 	margin: 0.5em auto;
 	padding: 1em;
 
-	.open-title {
+	.closed-title {
 		display: grid;
 	}
 
