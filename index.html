@@ -13,36 +13,36 @@
 	<body>
 		<header><h1>ToDo</h1></header>
 		<main>
-			<div id="sidebar">
+			<div id="sidebar" class="sidebar">
 				<h2>Verkefni</h2>
-				<div class="sideData">
+				<div class="side-data">
 					<p>Fjöldi</p>
-					<span id="nVerkefni">0</span>
+					<span id="todo-count">0</span>
 				</div>
-				<div class="sideData">
+				<div class="side-data">
 					<p>Fjöldi kláruð</p>
-					<span id="nKlarudVerkefni">0</span>
+					<span id="finished-count">0</span>
 				</div>
 
 				<h2>Flokkar</h2>
-				<div id="categoryStats" class="flokkarData">
-					<div class="sideData">
+				<div id="category-stats" class="category-data">
+					<div class="side-data">
 						<p></p><span></span>
 					</div>
 				</div>
 
 				<h2>Tags</h2>
-				<div id="tagStats" class="flokkarData">
-					<div class="sideData">
+				<div id="tag-stats" class="category-data">
+					<div class="side-data">
 						<p></p><span></span>
 					</div>
 				</div>
 			</div>
-			<div class="holderHolder">
-				<div id="holder"></div>
-				<div class="filterHolder">
+			<div class="container-container">
+				<div id="container" class="container"></div>
+				<div class="filter-container">
 					<label for="rada">Raða eftir: </label>
-					<select id="rada" name="rada">
+					<select id="rada" class="sorter" name="rada">
 						<option value="title">Titil</option>
 						<option value="time">Tímaröð</option>
 						<option value="importance">Mikilvægi</option>
@@ -56,7 +56,7 @@
 				<div class="efst">
 					<div class="efst-title">
 						<textarea class="title" type="text" placeholder="Titill..."><!-- Titill á task --></textarea>
-						<p class="Otitle closed-item"><!-- Titill á task --></p>
+						<p class="open-title closed-item"><!-- Titill á task --></p>
 					</div>
 					<div class="efst-checks">
 						<p class="Odate"><!-- 10. nóv	 --></p>
@@ -80,12 +80,12 @@
 				<div class="nedri-tags">
 					<p>Tags:</p>
 					<ul class="tags">
-						<button class="addTag"> + </button>
+						<button class="add-tag"> + </button>
 					</ul>
 				</div>
 				<div class="nedri-delete">
-					<button id="delete">
-						<svg version="1.1" class="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					<button class="delete">
+						<svg version="1.1" class="capa-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 							viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
 							<g>
 								<g>

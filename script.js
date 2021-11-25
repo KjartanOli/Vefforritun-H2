@@ -60,15 +60,15 @@ async function onStart() {
 
 export function createAddNew() {
 	let takki = el("button","Bæta við nýju ToDo");
-	takki.setAttribute("class","addNewButton");
-	let takkiHolder = el("div", takki);
+	takki.setAttribute("class","add-new-button");
+	let takkiContainer = el("div", takki);
 	takki.addEventListener("click", (e) => {
 		let newCard = cache.newItem(null);
-		takkiHolder.replaceWith(newCard);
+		takkiContainer.replaceWith(newCard);
 		createAddNew();
 	});
-	takkiHolder.setAttribute("class","takkiholder");
-	document.querySelector("#holder").appendChild(takkiHolder);
+	takkiContainer.setAttribute("class","takkicontainer");
+	document.querySelector("#container").appendChild(takkiContainer);
 }
 
 onStart();
