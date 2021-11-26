@@ -23,8 +23,6 @@ export function createAddNew() {
 }
 
 async function onStart() {
-	// let geymdurListi = localStorage.getItem("listi");
-	// let parsedListi = JSON.parse(geymdurListi);
 	let remote;
 	let cats;
 	const local = JSON.parse(localStorage.getItem("todos"));
