@@ -1,0 +1,41 @@
+* Uppsetning
+	Til þess að setja upp verkefnið til þróunar skaltu sækja kóðann af GitHub og
+	keyra:
+	#+begin_src shell
+		npm install
+	#+end_src
+	Sem mun setja upp nauðsynleg verkfæri.
+
+	Eftir það geturðu keyrt:
+	#+begin_src shell
+		npm run dev
+	#+end_src
+	Sem mun setja af stað öll verkfæri sem þú þarft á meðan þú ert að vinna.
+* Uppbygging kóða
+	Eins og stendur er öllu útliti stýrt úr [[file:main.scss][main.scss]].  Ef þú gerir stórfelldar
+	breytingar á útliti fyrir einhvern einn part af UI-inu máttu gjarnan taka þann
+	part út í sitt eigið SASS module.  Þér er einnig velkomið að brjóta =main.scss=
+	niður án breytinga á virkni, ef þér finnst ástæða til.
+
+	Nöfn Javascript module-anna ættu öll að lýsa ágætlega hvaða tilgangi þau
+	þjóna.  [[file:script.js][script.js]] er entry punkturinn að virkni frá HTML-inu, svo það er eina
+	skjalið sem ætti að nota í ~<script></script>~ element-i.
+
+	Allt interaction við verkefnalistann sjálfann, og/eða ~localStorage~ ætti að
+	fara fram í gegnum public API ~TodoItem~, og ~Cache~, til þess að tryggja að
+	cache-ið verði ekki out of sync við raunverulega stöðu verkefnalistans.  Allar
+	breytingar á gildum ~TodoItem~ ættu að notast við =setter=-a þess.  Hafi gildið
+	ekki =setter= skaltu bæta honum við.  Allir =setter=-ar verða að kalla á
+	~this.markModification()~ til þess að tryggja að cache verði ekki out of sync.
+
+	Öll DOM interactions við TodoItem container ættu að fara í gegnum
+	~TodoItem.container~.  Það að taka container út úr DOM-inu, eða bæta honum við
+	ætti að gera í gegnum ~TodoItem.pop~ og ~TodoItem.insert~.
+
+	Nöfn flestra falla ættu að gefa ágæta hugmynd um það hvað þau gera, og fæst
+	þeirra eru svo löng að það sé óraunhæft að lesa þau ef nafnið er ekki nóg.
+	Engu að síður eru Pull Requests með documentation á þau velkomin.
+
+	Föll sem hafa engan augljósan stað í neinu ákveðnu module, og hafa ekki nógu
+	mörg önnur föll sem hafa áhrif á sama hlutinn til þess að réttlæta nýtt module
+	eiga heima í [[file:lib/helpers.js][lib/helpers.js]].
