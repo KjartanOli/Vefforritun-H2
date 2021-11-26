@@ -6,8 +6,8 @@
     "dev": "concurrently npm:sass-watch npm:browser-sync",
     "lint-scss": "stylelint styles.scss ./**/*.scss",
     "lint-js": "eslint ./**/*.js",
-		"lint": "concurrently npm:lint-scss npm:lint-js",
-		"build": "if ! [ -d build ]; then mkdir build; fi; cp -r index.html calendar.svg data.json script.js lib/ build/ && sass main.scss build/main.css"
+    "lint": "concurrently npm:lint-scss npm:lint-js",
+    "build": "if ! [ -d build ]; then mkdir build; fi; cp -r index.html calendar.svg data.json script.js lib/ build/ && sass main.scss build/main.css"
   },
   "dependencies": {
     "sass": "^1.43.5"
