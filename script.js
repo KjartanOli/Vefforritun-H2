@@ -6,6 +6,7 @@ import {
 } from "./lib/categories.js";
 import { el } from "./lib/helpers.js";
 import { categoryStats, tagStats,fjoldi } from "./lib/stats.js";
+import { filter } from "./lib/sort.js";
 
 
 export function createAddNew() {
