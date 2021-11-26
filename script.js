@@ -1,16 +1,33 @@
+// Þetta þarfnast varla útskýringar lengur, er það nokkuð?
+// eslint-disable-next-line import/no-cycle
 import { cache } from "./lib/cache.js";
 import {
 	addCategory,
 } from "./lib/categories.js";
-import { el, empty } from "./lib/helpers.js";
-import { filter } from "./lib/sort.js";
+import { el } from "./lib/helpers.js";
 import { categoryStats, tagStats,fjoldi } from "./lib/stats.js";
+
+
+export function createAddNew() {
+	const takki = el("button", "Bæta við nýju ToDo");
+	takki.setAttribute("class", "add-new-button");
+	const takkiContainer = el("div", takki);
+	takki.addEventListener("click", () => {
+		const newCard = cache.newItem(null);
+		takkiContainer.remove();
+		newCard.insert();
+		createAddNew();
+	});
+	takkiContainer.setAttribute("class", "takkicontainer");
+	document.querySelector("#container").appendChild(takkiContainer);
+}
 
 async function onStart() {
 	// let geymdurListi = localStorage.getItem("listi");
 	// let parsedListi = JSON.parse(geymdurListi);
-	let remote, cats;
-	let local = JSON.parse(localStorage.getItem("todos"));
+	let remote;
+	let cats;
+	const local = JSON.parse(localStorage.getItem("todos"));
 
 	try {
 		let data = await fetch(new URL("data.json", window.location.href));
@@ -18,7 +35,7 @@ async function onStart() {
 		remote = data.items;
 		cats = data.categories;
 	} catch (e) {
-		console.log(e);
+		console.error(e);
 	}
 
 
@@ -58,17 +75,5 @@ async function onStart() {
 
 }
 
-export function createAddNew() {
-	let takki = el("button","Bæta við nýju ToDo");
-	takki.setAttribute("class","add-new-button");
-	let takkiContainer = el("div", takki);
-	takki.addEventListener("click", (e) => {
-		let newCard = cache.newItem(null);
-		takkiContainer.replaceWith(newCard);
-		createAddNew();
-	});
-	takkiContainer.setAttribute("class","takkicontainer");
-	document.querySelector("#container").appendChild(takkiContainer);
-}
 
 onStart();
